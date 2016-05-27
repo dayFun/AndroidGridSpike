@@ -11,10 +11,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                       .add(R.id.view_container, new GridFragment())
-                       .commit();
-
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction()
+                           .add(R.id.view_container, new GridLayoutFragment())
+//                           .add(R.id.view_container, new GridViewFragment())
+                           .commit();
+        }
     }
 }

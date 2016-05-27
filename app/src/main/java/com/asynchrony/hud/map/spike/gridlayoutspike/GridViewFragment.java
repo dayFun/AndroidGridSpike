@@ -9,17 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-public class GridFragment extends Fragment {
+public class GridViewFragment extends Fragment {
 
     private GridView gridView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.grid_fragment, container, false);
+        View view = inflater.inflate(R.layout.gridview_fragment, container, false);
         gridView = (GridView) view.findViewById(R.id.grid_view);
 
-        gridView.setAdapter(new GridViewAdapter(getActivity(), new int[]{1, 2, 3, 4}));
+        gridView.setAdapter(new GridViewAdapter(getActivity()));
 
         return view;
     }

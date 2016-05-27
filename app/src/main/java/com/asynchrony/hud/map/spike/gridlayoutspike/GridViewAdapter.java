@@ -1,31 +1,30 @@
 package com.asynchrony.hud.map.spike.gridlayoutspike;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.Random;
-
 public class GridViewAdapter extends BaseAdapter {
 
     private Context context;
-    private int[] data;
 
-    public GridViewAdapter(Context context, int[] data) {
+    public GridViewAdapter(Context context) {
         this.context = context;
-        this.data = data;
     }
 
     @Override
     public int getCount() {
-        return data.length;
+        return 4;
     }
 
     @Override
     public Object getItem(int position) {
+//        return GridBlock.createBlock(context, position);
         return null;
     }
 
@@ -39,19 +38,28 @@ public class GridViewAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View grid;
+        View singleBlock;
 
         if (convertView == null) {
-            grid = inflater.inflate(R.layout.single_grid_block, null);
-            TextView textView = (TextView) grid.findViewById(R.id.grid_item_label);
 
-            String text = "Some text " + new Random().nextInt();
-            textView.setText(text);
+            DisplayMetrics metrics = new DisplayMetrics();
+            Activity activity = (Activity) context;
+            activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
+            int width = metrics.widthPixels;
+            int height = metrics.heightPixels;
+
+            singleBlock = inflater.inflate(R.layout.single_grid_block, parent, false);
+            singleBlock.setMinimumHeight(height / 2);
+            singleBlock.setMinimumWidth(width / 2);
+
+
+            TextView label = (TextView) singleBlock.findViewById(R.id.grid_item_label);
+            label.setText("" + position);
         } else {
-            grid = (View) convertView;
+            singleBlock = convertView;
         }
 
-        return grid;
+        return singleBlock;
     }
 }
