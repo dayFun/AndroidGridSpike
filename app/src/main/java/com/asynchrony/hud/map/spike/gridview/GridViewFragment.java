@@ -1,4 +1,4 @@
-package com.asynchrony.hud.map.spike.gridlayoutspike;
+package com.asynchrony.hud.map.spike.gridview;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import com.asynchrony.hud.map.spike.gridlayoutspike.R;
+
 public class GridViewFragment extends Fragment {
 
     private GridView gridView;
@@ -17,9 +19,10 @@ public class GridViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.gridview_fragment, container, false);
-        gridView = (GridView) view.findViewById(R.id.grid_view);
 
-        gridView.setAdapter(new GridViewAdapter(getActivity()));
+        gridView = (GridView) view.findViewById(R.id.grid_view);
+        gridView.setVerticalScrollBarEnabled(false);
+        gridView.setAdapter(new GridViewAdapter(getActivity(), new GridBlockSizeCalculator(getActivity())));
 
         return view;
     }

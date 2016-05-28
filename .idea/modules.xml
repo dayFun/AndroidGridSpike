@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GridLayoutSpike.iml" filepath="$PROJECT_DIR$/GridLayoutSpike.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidGridSpike.iml" filepath="$PROJECT_DIR$/AndroidGridSpike.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

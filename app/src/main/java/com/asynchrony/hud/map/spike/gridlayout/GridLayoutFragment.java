@@ -1,4 +1,4 @@
-package com.asynchrony.hud.map.spike.gridlayoutspike;
+package com.asynchrony.hud.map.spike.gridlayout;
 
 
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.TextView;
+
+import com.asynchrony.hud.map.spike.gridlayoutspike.R;
 
 public class GridLayoutFragment extends Fragment {
 
@@ -34,7 +36,7 @@ public class GridLayoutFragment extends Fragment {
 
     private View createCell(LayoutInflater inflater, String cellLabelText) {
         View cell = inflater.inflate(R.layout.single_grid_block, null);
-        TextView cellLabel = (TextView) cell.findViewById(R.id.grid_item_label);
+        TextView cellLabel = (TextView) cell.findViewById(R.id.grid_block_label);
         cellLabel.setText(cellLabelText);
         return cell;
     }
